@@ -32,8 +32,6 @@ router.get("/weather", async (req, res) => {
         newResponse.current.humidity = response.data.current.humidity;
 
         res.send(newResponse);
-
-        res.send(newResponse.data);
     } catch (error) {
         console.error(error);
     }

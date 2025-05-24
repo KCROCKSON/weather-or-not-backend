@@ -12,6 +12,14 @@ const port = process.env.PORT;
 const weatherController = require("./controllers/weather");
 const testController = require("./controllers/test");
 
+const cors = require("cors");
+
+app.use(
+    cors({
+        origin: "http://localhost:4000",
+    })
+);
+
 app.get("/", (req, res) => {
     res.send("This is the root endpoint!");
 });
