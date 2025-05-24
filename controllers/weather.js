@@ -8,13 +8,12 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 router.get("/", async (req, res) => {
-    accessKey = process.env.ACCESS_KEY;
     query = req.query.query;
 
     const options = {
         method: "GET",
-        baseURL: "https://api.weatherstack.com",
-        url: `/current?access_key=${accessKey}`,
+        baseURL: process.env.WEATHERSTACK_URL,
+        url: `/current?access_key=${process.env.ACCESS_KEY}`,
         params: {
             query: query,
         },

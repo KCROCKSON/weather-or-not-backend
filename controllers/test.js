@@ -10,7 +10,7 @@ dotenv.config();
 router.get("/weather", async (req, res) => {
     const options = {
         method: "GET",
-        baseURL: "http://localhost:3000",
+        baseURL: `${process.env.BACKEND_URL}:${process.env.BACKEND_PORT}`,
         url: `/api/test/fullweather`,
     };
 
