@@ -7,10 +7,11 @@ const axios = require("axios");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const port = process.env.FRONTEND_PORT;
+const port = process.env.BACKEND_PORT;
 
 const weatherController = require("./controllers/weather");
 const testController = require("./controllers/test");
+const statusController = require("./controllers/status");
 
 const cors = require("cors");
 
@@ -28,16 +29,9 @@ app.get("/api", (req, res) => {
     res.send("This is the root api endpoint!");
 });
 
-app.get("/api/status", (req, res) => {
-    const status = {
-        Status: "Running",
-    };
-
-    res.send(status);
-});
-
 app.use("/api/weather", weatherController);
 app.use("/api/test", testController);
+app.use("/api/status", statusController);
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
