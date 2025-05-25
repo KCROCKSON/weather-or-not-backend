@@ -19,7 +19,7 @@ app.use(
     cors({
         origin: `${process.env.FRONTEND_URL}:${process.env.FRONTEND_PORT}`,
         origin: `127.0.0.1:${process.env.FRONTEND_PORT}`,
-        origin: `localhost:${process.env.FRONTEND_PORT}`
+        origin: `http://localhost:${process.env.FRONTEND_PORT}`
     })
 );
 
