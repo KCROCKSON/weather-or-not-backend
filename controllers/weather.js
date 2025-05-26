@@ -29,6 +29,7 @@ router.get("/", async (req, res) => {
 
         if (cityWeatherData.rowCount === 0) {
             const response = await axios.request(options);
+            console.log("Made api call nothing in database")
             const weatherData = response.data;
 
             await pool.query(
@@ -41,6 +42,7 @@ router.get("/", async (req, res) => {
 
             res.send(response.data);
         } else if (cityWeatherData.rowCount > 0) {
+            console.log("didnt make api call already in database")
             res.send(cityWeatherData.rows[0].data);
         }
     } catch (error) {
