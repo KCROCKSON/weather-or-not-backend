@@ -9,7 +9,10 @@ services:
             - DB_PORT=${POSTGRES_PORT}
             - DB_USER=${POSTGRES_USER}
             - DB_PASSWORD=${POSTGRES_PASSWORD}
-            - DB_NAME=${POSTGRES_HOST}
+            - DB_NAME=${POSTGRES_NAME}
+            - DB_HOST=${POSTGRES_HOST}
+            - ACCESS_KEY=${ACCESS_KEY}
+            - WEATHERSTACK_URL=${WEATHERSTACK_URL}
         volumes:
             - .:/app
             - /app/node_modules
